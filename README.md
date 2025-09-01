@@ -1,1 +1,5 @@
-# CP4-WebDev
+# CP4-WebDev 
+
+Integrantes: 
+* Vitor Pallis
+* Miguel Manfré
