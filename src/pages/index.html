@@ -6,19 +6,45 @@
     <link rel="stylesheet" href="../css/style.css">
     <title>info jogadoras</title>
     <style>
+        #form1 {
+            grid-area: form1;
+        }
+        #form2 {
+            grid-area: form2;
+        }
+        header {
+            display: grid; 
+            padding: 2%;
+            margin-bottom: 2%;
+            background-color: #ffd000;
+            grid-template-areas: 
+            "form1 . .  form2";
+        }
         .card {
             max-width: 30%;
             max-height: 30%;
         }
+        #Pesquisar {
+            width: 70%;
+            border-radius: 7px;
+        } 
     </style>
 </head>
 <body>
     <header>
-
+        <form id="form1" action="">
+            <input id="Pesquisar" type="search" placeholder="Pesquisar...">
+        </form>
+        <form id="form2" action="">
+            <button id="botaoCriar">Criar post</button>
+        </form>
     </header>
     <main>
-        <section>
-            <div>
+        <section id="sectionCriar">
+            
+        </section>
+        <section id="sectionJogadoras">
+            <div class="ListaJogadoras">
                 <img class="card" src="../img/cardJogadoras.png" alt="">
             </div>
         </section>
