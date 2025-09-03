@@ -1,3 +1,5 @@
+const { createElement } = require("react");
+
 let jogadoras = [
   {
     "nome": "Andressa Alves",
@@ -50,3 +52,26 @@ let jogadoras = [
     "favorita": false
   }
 ];
+
+window.onload = () => {
+  exibir();
+}
+
+function exibir() {
+  const localDasJogadoras = document.getElementById('sectonJogadoras')
+  localDasJogadoras.forEach(procurar => {
+    const card = document.createElement('div')
+    card.className ='listaJogadoras' 
+    card.innerHTML += `
+        <img class="card" src="../img/cardJogadoras.png" alt="">
+        <h3>${procurar.nome}</h3>
+        <p>Posição: ${procurar.posicao}</p>
+        <p>Clube: ${procurar.clube}</p>
+        <p>Gols: ${procurar.gols}</p>
+        <p>Assistências: ${procurar.assistencias}</p>
+        <p>Jogos: ${procurar.jogos}</p>
+    `
+    localDasJogadoras.appendChild(card); 
+  });
+  console.log('ta abrindo!')
+}
