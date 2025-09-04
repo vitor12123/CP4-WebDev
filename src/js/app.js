@@ -62,6 +62,7 @@ function exibir() {
     card.className ='listaJogadoras' 
     card.innerHTML += `
         <img class="card" src="../img/cardJogadoras.png" alt="">
+        <div class='informacaoJogadoras'>
         <h2 class="nomeJogadora">${procurar.nome}</h2>
         <p>Posição: ${procurar.posicao}</p>
         <p>Clube: ${procurar.clube}</p>
@@ -69,6 +70,7 @@ function exibir() {
         <p>Gols: ${procurar.gols}</p>
         <p>Assistências: ${procurar.assistencias}</p>
         <p>Jogos: ${procurar.jogos}</p>
+        </div>
     `
     localDasJogadoras.appendChild(card); 
   });
