@@ -6,19 +6,12 @@
     <link rel="stylesheet" href="../css/style.css">
     <title>info jogadoras</title>
     <style>
-        #form1 {
-            grid-area: form1;
-        }
-        #form2 {
-            grid-area: form2;
+        #forms {
+            margin-bottom: 8%;
         }
         header {
             display: grid; 
             padding: 2%;
-            margin-bottom: 2%;
-            background-color: #ffd000;
-            grid-template-areas: 
-            "form1 . .  form2";
         }
         .card {
             display: grid;
@@ -41,21 +34,37 @@
             margin-top: -50%;
             margin-bottom: 20%;
         }
+        .fotoJogadora {
+            max-width: 145px;
+            max-height: 145px;
+        }
     </style>
 </head>
 <body>
     <header>
-        <form id="form1" action="">
-            <input id="Pesquisar" type="search" placeholder="Pesquisar...">
-        </form>
-        <form id="form2" action="">
-            <button id="botaoCriar">Criar post</button>
-        </form>
+         
     </header>
     <main>
         <section id="sectionCriar">
-            
+            <form id="forms" onsubmit="adicionar(event)" action="">
+                <label>digite a url da foto da jogadora:</label>
+                <textarea placeholder="digite a url aqui..." id="imag"></textarea><br>
+                <label>digite o nome da jogadora:</label>
+                <textarea placeholder="digite o nome aqui..." id="nome2"></textarea><br>
+                <label>digite a posição da jogadora:</label>
+                <textarea placeholder="digite a posição aqui..." id="position"></textarea><br>
+                <label>digite o clube da jogadora:</label>
+                <textarea placeholder="digite aqui..." id="club"></textarea><br>
+                <label>digite a quantidade de gols da jogadora:</label>
+                <textarea placeholder="digite aqui..." id="gool"></textarea><br>
+                <label>digite a quantidade de assistencias da jogadora:</label>
+                <textarea placeholder="digite aqui..." id="assists"></textarea><br>
+                <label>digite a quantidade de jogos da jogadora:</label>
+                <textarea placeholder="digite a quantidade de jogos aqui..." id="qntdJogos"></textarea><br>
+                <button type="button">criar</button>
+            </form>
         </section>
+        
         <section id="sectionJogadoras">
             
         </section>

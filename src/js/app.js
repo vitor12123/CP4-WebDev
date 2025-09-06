@@ -84,7 +84,6 @@ function exibir() {
         <button class="botaoEditar" data-index="${idx}">Editar Card da jogadora</button>
     `
     localDasJogadoras.appendChild(card);
-    let foto = card.append(procurar.foto)
     
     let favorito = card.querySelector('#favorito');
     favorito.addEventListener('click', () => {
@@ -103,16 +102,77 @@ function exibir() {
       contador++; 
     });
 
+    function adicionar(event) {
+    event.preventDefault();
+    
+    const imag = document.getElementById('imag').value;
+    const nome2 = document.getElementById('nome2').value;
+    const position = document.getElementById('position').value
+    const club =  document.getElementById('club').value
+    const gool =  document.getElementById('gool').value
+    const assists =  document.getElementById('assists').value
+    const qntdJogos =  document.getElementById('qntdJogos').value
+
+    const novasJogadoras = { 
+        foto: imag,
+        nome:  nome2,
+        posicao: position,
+        clube: club,
+        gols: gool,
+        assistencias: assists,
+        jogos: qntdJogos,
+        favorita: false
+    };
+    
+    jogadoras.unshift(novasJogadoras);
+    
+    document.querySelector('#forms').reset();
+    localStorage.setItem('jogadoras',JSON.stringify(jogadoras));  
+    exibir();
+    }
+
+
+
   let edit = card.querySelectorAll('.botaoEditar');
-  edit.forEach(btnEdit => {
-    btnEdit.addEventListener("click", (event) => {
-      const novaImg = prompt('digite uma nova URL para mudara foto, se nao for mudar coloque a mesma URL.', jogadoras[idx], foto)
-      jogadoras[idx].foto = novaImg
-      localDasJogadoras.innerHTML = "";
-      exibir();
+
+  edit.forEach((btnEdit, idx) => {
+    btnEdit.addEventListener("click", () => {
+      const novaImg = prompt("Digite uma nova URL para mudar a foto (ou coloque a mesma para não alterar):",
+        jogadoras[idx].foto
+      );
+      const novoNome = prompt("Digite o novo nome que você quer colocar.",
+        jogadoras[idx].nome
+      )
+      const novaPosicao = prompt("Digite a nova posição da jogadora.",
+        jogadoras[idx].posicao
+      )
+      const novoClube = prompt("Digite o novo clube da jogadora.",
+        jogadoras[idx].clube
+      )
+      const novoGol = prompt("Digite a nova quantidade de gols.",
+        jogadoras[idx].gols
+      )
+      const novaAssisencia = prompt("Digite a nova quantidade de assistencias.",
+        jogadoras[idx].assistencias
+      )
+      const novoJogo = prompt("Digite digite quantos jogos a jogadora jogou.",
+        jogadoras[idx].jogos
+      )
+      if (novaImg !== null && novaImg.trim() !== "") {
+        jogadoras[idx].foto = novaImg;
+        localDasJogadoras.innerHTML = ""; 
+          }
+        jogadoras[idx].nome = novoNome
+        jogadoras[idx].posicao = novaPosicao
+        jogadoras[idx].clube = novoClube
+        jogadoras[idx].gols = novoGol
+        jogadoras[idx].assistencias = novaAssisencia
+        jogadoras[idx].jogos = novoJogo
+        exibir();
+        alert('jogadora editada com sucesso!')
+        });
       });
-    });
-  
+
   let delet = card.querySelectorAll('.botaoDelete');
   delet.forEach(btnDel => {
     btnDel.addEventListener("click", () => {
@@ -120,6 +180,7 @@ function exibir() {
       const localDasJogadoras = document.getElementById('sectionJogadoras'); 
       localDasJogadoras.innerHTML = "";
       exibir();
+      alert('jogadora excluida com sucesso!')
       });
     });
   });
