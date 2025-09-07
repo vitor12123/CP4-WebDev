@@ -1,80 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <title>info jogadoras</title>
-    <style>
-        #forms {
-            margin-bottom: 8%;
-        }
-        header {
-            display: grid; 
-            padding: 2%;
-        }
-        .card {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            margin-bottom: 10%;
-            max-width: 40%;
-            max-height: 40%;
-            
-        }
-        #Pesquisar {
-            width: 70%;
-            border-radius: 7px;
-        } 
-        .nomeJogadora {
-            display: grid;
-            text-transform: uppercase;
-        }
-        .informacaoJogadoras {
-            display: grid;
-            margin-top: -50%;
-            margin-bottom: 20%;
-        }
-        .fotoJogadora {
-            max-width: 145px;
-            max-height: 145px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../css/style.css">
+<title>Info Jogadoras</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f2f7;
+    margin: 0;
+    padding: 0;
+}
+
+#sectionCriar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto;
+}
+
+#forms {
+    background: white;
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+    max-width: 400px;
+    width: 100%;
+}
+
+#forms label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#forms textarea {
+    width: 100%;
+    min-height: 35px;
+    resize: none;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 6px 8px;
+    font-size: 14px;
+}
+
+#forms button {
+    margin-top: 15px;
+    width: 100%;
+    background: #5b3ebc;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#forms button:hover {
+    background: #472f96;
+}
+
+.card {
+    position: relative;
+    width: 300px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fundoCard {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    display: block;
+}
+
+.conteudoCard {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 70px;
+    width: 100%;
+    height: 100%;
+    padding: 30px 20px;
+    text-align: center;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.fotoJogadora {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 30px 0px 0px 50px;
+    display: block;
+}
+
+.nomeJogadora {
+    color: rgb(179, 146, 0);
+    font-size: 22px;
+    margin: 5px 0;
+    margin-left: -30px;
+}
+
+.info {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.stats {
+    color: rgb(179, 146, 0);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.stats div {
+    max-width: 70%;
+    padding: 2px 0px;
+    border-radius: 0px;
+}
+
+
+.iconFav {
+    margin-top: 10px;
+    margin-left:660px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+} 
+
+.botaoDelete, .botaoEditar {
+    margin-bottom: 40px;
+    margin-left: 320px;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.botaoDelete {
+    background: #d9534f;
+    color: white;
+}
+.botaoDelete:hover {
+    background: #b52b27;
+}
+
+.botaoEditar {
+    background: #5b3ebc;
+    color: white;
+}
+.botaoEditar:hover {
+    background: #472f96;
+}
+</style>
 </head>
 <body>
-    <header>
-         
-    </header>
-    <main>
-        <section id="sectionCriar">
-            <form id="forms" onsubmit="adicionar(event)" action="">
-                <label>digite a url da foto da jogadora:</label>
-                <textarea placeholder="digite a url aqui..." id="imag"></textarea><br>
-                <label>digite o nome da jogadora:</label>
-                <textarea placeholder="digite o nome aqui..." id="nome2"></textarea><br>
-                <label>digite a posição da jogadora:</label>
-                <textarea placeholder="digite a posição aqui..." id="position"></textarea><br>
-                <label>digite o clube da jogadora:</label>
-                <textarea placeholder="digite aqui..." id="club"></textarea><br>
-                <label>digite a quantidade de gols da jogadora:</label>
-                <textarea placeholder="digite aqui..." id="gool"></textarea><br>
-                <label>digite a quantidade de assistencias da jogadora:</label>
-                <textarea placeholder="digite aqui..." id="assists"></textarea><br>
-                <label>digite a quantidade de jogos da jogadora:</label>
-                <textarea placeholder="digite a quantidade de jogos aqui..." id="qntdJogos"></textarea><br>
-                <button type="button">criar</button>
-            </form>
-        </section>
-        
-        <section id="sectionJogadoras">
-            
-        </section>
-    </main>
-    <script src="https://kit.fontawesome.com/129b440489.js" crossorigin="anonymous"></script>
-</body>
+<main>
+<section id="sectionCriar">
+    <form id="forms" onsubmit="adicionar(event)" action="">
+    <label>Digite a URL da foto da jogadora:</label>
+    <textarea required placeholder="Digite a URL aqui..." id="imag"></textarea><br>
+    <label>Digite o nome da jogadora:</label>
+    <textarea required placeholder="Digite o nome aqui..." id="nome2"></textarea><br>
+    <label>Digite a posição da jogadora:</label>
+    <textarea required placeholder="Digite a posição aqui..." id="position"></textarea><br>
+    <label>Digite o clube da jogadora:</label>
+    <textarea required placeholder="Digite aqui..." id="club"></textarea><br>
+    <label>Digite a quantidade de gols da jogadora:</label>
+    <textarea required placeholder="Digite aqui..." id="gool"></textarea><br>
+    <label>Digite a quantidade de assistências da jogadora:</label>
+    <textarea required placeholder="Digite aqui..." id="assists"></textarea><br>
+    <label>Digite a quantidade de jogos da jogadora:</label>
+    <textarea required placeholder="Digite aqui..." id="qntdJogos"></textarea><br>
+    <button>Criar Jogadora</button>
+    </form>
+</section>
 
-
-
-<script src="../js/app.js">
+<section id="sectionJogadoras">
     
-</script>
+</section>
+</main>
+
+<script src="https://kit.fontawesome.com/129b440489.js" crossorigin="anonymous"></script>
+<script src="../js/app.js"></script>
+</body>
 </html>

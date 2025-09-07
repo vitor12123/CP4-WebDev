@@ -3,7 +3,7 @@ let jogadoras = [
     "nome": "Andressa Alves",
     "posicao": "Meio-campo",
     "clube": "Corinthians",
-    "foto": "https://example.com/andressa.jpg",
+    "foto": "https://tse2.mm.bing.net/th/id/OIP.w_H2UHBmOTyBB854KzHA4QHaEK?pid=Api&P=0&h=180",
     "gols": 15,
     "assistencias": 10,
     "jogos": 28,
@@ -13,7 +13,7 @@ let jogadoras = [
     "nome": "Dayana Rodríguez",
     "posicao": "Meio-campo",
     "clube": "Corinthians",
-    "foto": "https://example.com/dayana.jpg",
+    "foto": "https://tse1.mm.bing.net/th/id/OIP.ekXPitwZCcFSgJi5socj5AHaFV?pid=Api&P=0&h=180",
     "gols": 5,
     "assistencias": 12,
     "jogos": 30,
@@ -23,7 +23,7 @@ let jogadoras = [
     "nome": "Mariza",
     "posicao": "Zagueira",
     "clube": "Corinthians",
-    "foto": "https://example.com/mariza.jpg",
+    "foto": "https://tse4.mm.bing.net/th/id/OIP.UMT63MIou-sjrMhn2icdiQHaEK?pid=Api&P=0&h=180",
     "gols": 2,
     "assistencias": 1,
     "jogos": 32,
@@ -33,7 +33,7 @@ let jogadoras = [
     "nome": "Thaís Regina",
     "posicao": "Zagueira",
     "clube": "Corinthians",
-    "foto": "https://example.com/thais.jpg",
+    "foto": "https://tse4.mm.bing.net/th/id/OIP.FxO5BTbdyqCaNZLTlR4D_AHaE1?pid=Api&P=0&h=180",
     "gols": 1,
     "assistencias": 2,
     "jogos": 25,
@@ -43,7 +43,7 @@ let jogadoras = [
     "nome": "Letícia Teles",
     "posicao": "Zagueira",
     "clube": "Corinthians",
-    "foto": "https://example.com/leticia.jpg",
+    "foto": "https://www.opovo.com.br/_midias/jpg/2023/08/04/818x460/1_alisha_lehmann_jogadora_mais_seguida_do_mundo-22893081.jpg",
     "gols": 0,
     "assistencias": 0,
     "jogos": 18,
@@ -65,24 +65,34 @@ function idx(event) {
 
 function exibir() {
   const localDasJogadoras = document.getElementById('sectionJogadoras');
+
+    localDasJogadoras.innerHTML = "";
+
   jogadoras.forEach(procurar => {
     const card = document.createElement('div')
     card.className ='listaJogadoras' 
-    card.innerHTML += `
-        <img id="favorito" src="../img/favorite_24dp_000_FILL0_wght400_GRAD0_opsz24.png" alt="">
-        <img class="card" src="../img/cardJogadoras.png" alt="">
-        <div class='informacaoJogadoras'>
-        <img class="fotoJogadora" src="${procurar.foto}" alt="${procurar.foto}">
-        <h2 class="nomeJogadora">${procurar.nome}</h2>
-        <p>Posição: ${procurar.posicao}</p>
-        <p>Clube: ${procurar.clube}</p>
-        <p>Gols: ${procurar.gols}</p>
-        <p>Assistências: ${procurar.assistencias}</p>
-        <p>Jogos: ${procurar.jogos}</p>
+   card.innerHTML = `
+   <img id="favorito" class="iconFav" src="../img/favorite_24dp_000_FILL0_wght400_GRAD0_opsz24.png" alt="">
+    <div class="card">
+        <img class="fundoCard" src="../img/cardJogadoras.png" alt="">
+
+        <div class="conteudoCard">
+            <img class="fotoJogadora" src="${procurar.foto}" alt="${procurar.nome}">
+            <h2 class="nomeJogadora">${procurar.nome}</h2>
+            <div class="stats">
+              <div>Posição: ${procurar.posicao}</div>
+              <div>Clube: ${procurar.clube}</div>
+              <div>Gols: ${procurar.gols}</div>
+              <div>Assist: ${procurar.assistencias}</div>
+              <div>Jogos: ${procurar.jogos}</div>
+            </div>
         </div>
-        <button class="botaoDelete">Excluir Card da jogadora</button>
-        <button class="botaoEditar" data-index="${idx}">Editar Card da jogadora</button>
-    `
+    </div>
+
+    <button class="botaoDelete">Excluir Card da jogadora</button>
+    <button class="botaoEditar" data-index="${idx}">Editar Card da jogadora</button>
+    <div>------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- </div>
+`
     localDasJogadoras.appendChild(card);
     
     let favorito = card.querySelector('#favorito');
@@ -101,36 +111,6 @@ function exibir() {
       }
       contador++; 
     });
-
-    function adicionar(event) {
-    event.preventDefault();
-    
-    const imag = document.getElementById('imag').value;
-    const nome2 = document.getElementById('nome2').value;
-    const position = document.getElementById('position').value
-    const club =  document.getElementById('club').value
-    const gool =  document.getElementById('gool').value
-    const assists =  document.getElementById('assists').value
-    const qntdJogos =  document.getElementById('qntdJogos').value
-
-    const novasJogadoras = { 
-        foto: imag,
-        nome:  nome2,
-        posicao: position,
-        clube: club,
-        gols: gool,
-        assistencias: assists,
-        jogos: qntdJogos,
-        favorita: false
-    };
-    
-    jogadoras.unshift(novasJogadoras);
-    
-    document.querySelector('#forms').reset();
-    localStorage.setItem('jogadoras',JSON.stringify(jogadoras));  
-    exibir();
-    }
-
 
 
   let edit = card.querySelectorAll('.botaoEditar');
@@ -186,3 +166,33 @@ function exibir() {
   });
 
 }
+
+function adicionar(event) {
+      event.preventDefault();
+      
+      const imag = document.getElementById('imag').value;
+      const nome2 = document.getElementById('nome2').value;
+      const position = document.getElementById('position').value
+      const club =  document.getElementById('club').value
+      const gool =  document.getElementById('gool').value
+      const assists =  document.getElementById('assists').value
+      const qntdJogos =  document.getElementById('qntdJogos').value
+
+      const novasJogadoras = { 
+          foto: imag,
+          nome:  nome2,
+          posicao: position,
+          clube: club,
+          gols: gool,
+          assistencias: assists,
+          jogos: qntdJogos,
+          favorita: false
+    };
+    
+      jogadoras.unshift(novasJogadoras);
+      
+      document.querySelector('#forms').reset();
+      localStorage.setItem('jogadoras',JSON.stringify(jogadoras));  
+      exibir();
+    }
+
