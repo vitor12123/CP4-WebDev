@@ -72,9 +72,9 @@ function exibir() {
     const card = document.createElement('div')
     card.className ='listaJogadoras' 
    card.innerHTML = `
-   <img id="favorito" class="iconFav" src="../img/favorite_24dp_000_FILL0_wght400_GRAD0_opsz24.png" alt="">
+   <img id="favorito" class="iconFav" src="https://w7.pngwing.com/pngs/194/804/png-transparent-favorite-star-favorites-favourite-multimedia-multimedia-icon.png" alt="">
     <div class="card">
-        <img class="fundoCard" src="../img/cardJogadoras.png" alt="">
+        <img class="fundoCard" src="https://futcardsfifa.com/app/uploads/2023/01/TEAM-OF-THE-YEAR-TOTY-T23-min.png" alt="">
 
         <div class="conteudoCard">
             <img class="fotoJogadora" src="${procurar.foto}" alt="${procurar.nome}">
@@ -99,13 +99,12 @@ function exibir() {
     favorito.addEventListener('click', () => {
       ativado =  !ativado;
       if (ativado == true ) {
-        favorito.style.backgroundColor = 'red';
-        favorito.style.borderRadius = '60%';
+        favorito.src = " https://w7.pngwing.com/pngs/194/804/png-transparent-favorite-star-favorites-favourite-multimedia-multimedia-icon.png"
         jogadorasFavoritas.push(procurar.nome)
         localStorage.setItem("JogagadorasFavoritadas", jogadorasFavoritas)
       }
       else {
-        favorito.style.backgroundColor = "#ffff";
+        favorito.src = "../img/Estrela Vermelha Sobre Fundo Branco.png"
         jogadorasFavoritas = jogadorasFavoritas.filter(nm => nm !== procurar.nome)
         localStorage.removeItem("JogadorasFavoritas", jogadorasFavoritas)
       }
