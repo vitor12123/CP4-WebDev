@@ -1,6 +1,7 @@
 # CP4-WebDev
 
-Com objetivo de aplicar a regra do CRUD(CREATE, READ, UPDATE, DELETE)
+Implementação de uma aplicação web em HTML, CSS e JavaScript que permita gerenciar informações de jogadoras de futebol feminino.
+Com objetivo de aplicar a regra do CRUD(CREATE, READ, UPDATE, DELETE).
 
 ---
 
@@ -17,6 +18,7 @@ Com objetivo de aplicar a regra do CRUD(CREATE, READ, UPDATE, DELETE)
 - HTML
 - CSS
 - JavaScript
+- JSON
 
 ---
 
@@ -24,5 +26,12 @@ Com objetivo de aplicar a regra do CRUD(CREATE, READ, UPDATE, DELETE)
 
 - Vitor Pallis
 - Miguel Manfré
+
+---
+
+## Acesso ao site
+
+Repositório: https://github.com/vitor12123/CP4-WebDev
+Link do site: https://vitor12123.github.io/CP4-WebDev
 
 ---
